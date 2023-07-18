@@ -1,0 +1,137 @@
+Q1.Create a database called "Bookstore" that will store information about books.
+A)
+CRAETE DATABASE Bookstore;
+
+q2.Create a table called "Books" with the following columns:
+
+book_id (integer)
+title (text)
+author (text)
+publication_year (integer)
+price (decimal)
+A)
+CREATE TABLE Books(
+  book_id int,
+  title varchar(330),
+  author varchar(330),
+  publication_year int,
+  price decimal);
+
+q3.Insert at least 5 records into the "Books" table with different books and their information.
+A)
+INSERT INTO Books(book_id,title,author,publication_year,price)
+VALUES(01,"C","Dennis",2000,25.1),
+(02,"C++","Daniel",2002,55.0),
+(03,"Pthon","Rossum",2003,62.1),
+(04,"Java","James",1995,45),
+(05,"Scala","Dogan",1999,55);
+
+
+
+q4)Write a SQL query to retrieve all the books from the "Books" table.
+A)
+SELECT  * FROM Books;
+
+q5)Write a SQL query to retrieve the books published after the year 2000.
+A)
+SELECT  *FROM Books
+where (publication_year > 2000);
+
+
+q6)Write a SQL query to calculate the average price of all the books.
+A)
+SELECT AVG(price) as Avg_price
+FROM Books
+
+q7)Write a SQL query to retrieve the books written by a specific author (choose any author of your choice).
+A)
+SELECT * 
+FROM Books
+where (author = 'Rossum')
+
+
+q8)Write a SQL query to update the price of a specific book (choose any book and update the price).
+A)
+UPDATE Books
+SET PRICE= 101 
+where (book_id = 1);
+
+q9)Write a SQL query to delete a specific book from the "Books" table (choose any book to delete).
+A)
+DELETE from Books
+WHERE title='C++'
+
+Q2. https://www.hackerrank.com/challenges/revising-aggregations-the-count-function/problem?isFullScreen=true
+A)
+SELECT COUNT(*) 
+FROM CITY 
+WHERE POPULATION > 100000;
+
+Q3.https://www.hackerrank.com/challenges/weather-observation-station-3/problem?isFullScreen=true
+A)
+SELECT DISTINCT CITY
+FROM STATION 
+where  (ID % 2 = 0) 
+order by CITY
+
+Q4. https://www.hackerrank.com/challenges/weather-observation-station-4/problem?isFullScreen=true
+A)
+SELECT COUNT( CITY) - COUNT(Distinct CITY) as Diff_CITY  FROM STATION  ;
+
+Q5.https://www.hackerrank.com/challenges/weather-observation-station-6/problem?isFullScreen=true
+A)
+SELECT DISTINCT city
+FROM station
+WHERE city REGEXP '^[aiueo]'
+
+Q6. https://www.hackerrank.com/challenges/more-than-75-marks/problem?isFullScreen=true
+A)
+SELECT Name FROM STUDENTS
+WHERE (Marks > 75)
+order by right(Name,3) asc, ID asc
+
+
+q7.https://www.hackerrank.com/challenges/revising-aggregations-the-count-function/problem?isFullScreen=true
+A)
+select count(Name) from CITY where Population > 100000
+
+
+Q8. https://www.hackerrank.com/challenges/revising-aggregations-sum/problem?isFullScreen=true
+A)
+Select sum(POPULATION) from city 
+where DISTRICT='California'
+
+Q9. https://www.hackerrank.com/challenges/revising-aggregations-the-average-function/problem?isFullScreen=true
+A)
+Select avg(POPULATION) from city 
+where DISTRICT='California'
+
+Q10. https://www.hackerrank.com/challenges/weather-observation-station-13/problem?isFullScreen=true
+A)
+select TRUNCATE(SUM(LAT_N),4)
+from STATION
+where (LAT_N > 38.7880 AND LAT_N< 137.2345  )
+
+
+Q11. https://www.hackerrank.com/challenges/asian-population/problem?isFullScreen=true
+A)
+SELECT SUM(CITY.POPULATION)
+FROM CITY
+JOIN COUNTRY
+ON CITY.CountryCode=COUNTRY.Code
+
+WHERE CONTINENT='ASIA'
+
+Q12. https://www.hackerrank.com/challenges/average-population-of-each-continent/problem?isFullScreen=true
+A)
+SELECT Country.Continent, FLOOR(AVG(City.Population))
+FROM Country, City 
+WHERE Country.Code = City.CountryCode 
+GROUP BY Country.Continent ;
+ 
+
+Q13. https://www.hackerrank.com/challenges/the-report/problem?isFullScreen=true
+
+Q14. https://www.hackerrank.com/challenges/full-score/problem?isFullScreen=true
+
+Q15. https://www.hackerrank.com/challenges/contest-leaderboard/problem?isFullScreen=true
